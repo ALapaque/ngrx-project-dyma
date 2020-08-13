@@ -4,6 +4,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const MongoClient = mongoose.MongoClient;
 const app = express();
 const index = require('./routes/index');
 
@@ -13,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 
-mongoose.connect('mongodb://angulardyma:123@ds119018.mlab.com:19018/mean-stack', {
+mongoose.connect('mongodb://ngrxdyma:ZVAc6A8iPSzcUiu9@dyma-cluster.dd7es.gcp.mongodb.net/ngrx-dyma?retryWrites=true&w=majority', {
     keepAlive: true,
     useNewUrlParser: true,
     useUnifiedTopology: true
