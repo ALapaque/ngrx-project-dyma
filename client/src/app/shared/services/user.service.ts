@@ -14,7 +14,7 @@ export class UserService {
     if (this.currentUser.value) {
       return this.currentUser;
     } else {
-      return this.http.get<User>('/api/user/current').pipe(
+      return this.http.get<User>('https://dyma-staging.fr:5001/api/user/current').pipe(
         tap( (user: User) => {
           this.currentUser.next(user);
         }),

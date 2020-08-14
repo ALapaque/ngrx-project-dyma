@@ -1,6 +1,8 @@
+import { LayoutModule } from './layout.module';
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 // components
 import { TopbarComponent } from './../components/topbar/topbar.component';
@@ -17,19 +19,25 @@ import { AuthGuard } from '../guards/auth.guard';
 
 // interceptors
 import { AuthInterceptor } from '../interceptors/auth.interceptor';
+import { ReactiveFormsModule } from '@angular/forms';
 
-
+const COMPONENTS = [
+  HomepageComponent,
+  SigninComponent,
+  SignupComponent,
+  TopbarComponent,
+]
 
 @NgModule({
-  declarations: [
-    HomepageComponent,
-    SigninComponent,
-    SignupComponent,
-    TopbarComponent,
-  ],
+  declarations: COMPONENTS,
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    RouterModule,
+    LayoutModule,
   ],
+  exports: COMPONENTS,
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

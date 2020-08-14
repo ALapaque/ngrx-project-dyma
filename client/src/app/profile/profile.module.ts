@@ -1,3 +1,4 @@
+import { LayoutModule } from './../shared/modules/layout.module';
 import { ProfileComponent } from './profile.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -13,6 +14,7 @@ import { PROFILE_ROUTES } from './profile.routes';
   imports: [
     CommonModule,
     RouterModule.forChild(PROFILE_ROUTES),
+    LayoutModule,
   ]
 })
 export class ProfileModule { }
